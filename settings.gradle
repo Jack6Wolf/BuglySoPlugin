@@ -1,0 +1,3 @@
+include ':buglysoupload'
+include ':app'
+rootProject.name = "BuglySoPlugin"

@@ -1,0 +1,37 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+apply plugin: 'com.novoda.bintray-release'
+
+version = "1.0.0"
+group = "com.jack.bugly"
+archivesBaseName  = "buglysoupload"
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+
+    implementation gradleApi()
+    implementation localGroovy()
+
+    implementation 'com.android.tools.build:gradle:3.2.0'
+}
+
+uploadArchives { //当前项目可以发布到本地文件夹中
+    repositories {
+        mavenDeployer {
+            ////定义本地maven仓库的地址
+            repository(url: uri('./my-plugin'))
+        }
+    }
+}
+
+publish {
+    userOrg = 'pengwg'      //bintray注册的用户名
+    groupId = group    //compile引用时的第1部分groupId
+    artifactId = archivesBaseName     //compile引用时的第2部分项目名
+    publishVersion = version   //compile引用时的第3部分版本号
+    desc = 'android gradle plugin'//项目描述
+    website = 'https://github.com/Jack6Wolf/BuglySoUpload' //github 托管地址
+}
