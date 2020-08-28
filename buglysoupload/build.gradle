@@ -28,6 +28,7 @@ uploadArchives { //当前项目可以发布到本地文件夹中
 }
 
 publish {
+    repoName = "BuglySoPlugin"//仓库名
     userOrg = 'pengwg'      //bintray注册的用户名
     groupId = group    //compile引用时的第1部分groupId
     artifactId = archivesBaseName     //compile引用时的第2部分项目名
